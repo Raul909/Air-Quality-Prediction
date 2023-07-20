@@ -1,4 +1,10 @@
 # Air Quality Prediction App 
+--------------------------------
+
+## Hyperparameter Optimization
+
+Increased the accuracy of the Random Forest Regressor Model by about 12.69%
+
 
 
 ## Dependencies:
@@ -6,7 +12,6 @@
 The following libraries and tools will be used for the development of the Air Quality Prediction App:
 
 Python (version 3.x)
-Web scraping library (e.g., BeautifulSoup, Scrapy)
 Pandas for data manipulation and analysis
 Matplotlib and Seaborn for data visualization
 Scikit-learn for machine learning algorithms and evaluation metrics
