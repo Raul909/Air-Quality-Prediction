@@ -1,6 +1,6 @@
 # Air Quality Prediction App 
 
-![](D:\Air Quality Prediction\notebooks\Air quality index.png)
+![](https://github.com/Raul909/Air-Quality-Prediction/blob/main/notebooks/Air%20quality%20index.png)
 --------------------------------
 
 ## Hyperparameter Optimization
@@ -25,21 +25,21 @@ Flask (optional) for web application development
 
 To run the Air Quality Prediction App, follow these steps:
 
-1.Install Python (version 3.x) and the required libraries mentioned in the "Dependencies" section.
+1. Install Python (version 3.x) and the required libraries mentioned in the "Dependencies" section.
 
-2.Clone or download the project repository to your local machine.
+2. Clone or download the project repository to your local machine.
 
-3.Navigate to the project directory using the command line or terminal.
+3. Navigate to the project directory using the command line or terminal.
 
-4.Run the web scraping script to fetch historical air quality data from the selected source.
+4. Run the web scraping script to fetch historical air quality data from the selected source.
 
-5.Run the data preprocessing and feature engineering scripts to prepare the data for model training.
+5. Run the data preprocessing and feature engineering scripts to prepare the data for model training.
 
-6.Execute the machine learning model training script to train the model on the preprocessed data.
+6. Execute the machine learning model training script to train the model on the preprocessed data.
 
-7.Save the trained model to a file for future use.
+7. Save the trained model to a file for future use.
 
-8.Run the web interface or command-line application to enable users to input meteorological conditions and receive air quality predictions from the model.
+8. Run the web interface or command-line application to enable users to input meteorological conditions and receive air quality predictions from the model.
 
 
 
