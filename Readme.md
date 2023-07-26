@@ -1,6 +1,6 @@
 # Air Quality Prediction App 
 
-[!](D:\Air Quality Prediction\notebooks\Air quality index.png)
+![](D:\Air Quality Prediction\notebooks\Air quality index.png)
 --------------------------------
 
 ## Hyperparameter Optimization
