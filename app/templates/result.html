@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Air Quality Prediction Results</title>
+    <title>Air Quality Prediction Result</title>
 </head>
 <body>
     <h1>Result</h1>
     <p>City: {{ city }}</p>
-    <p>Random Forest Regression Prediction: {{ random_forest_prediction }}</p>
-    <p>Linear Regression Prediction: {{ linear_regression_prediction }}</p>
+    <p>PM2.5: {{ pm25 }}</p>
+    <p>PM10: {{ pm10 }}</p>
+    <p>Predicted AQI Bucket: {{ aqi_bucket }}</p>
 </body>
 </html>

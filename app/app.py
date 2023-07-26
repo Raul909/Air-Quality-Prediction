@@ -3,21 +3,14 @@ import joblib
 import pandas as pd
 import os
 
-# Get the absolute path to the 'data' folder
-data_file = 'D:\\Air Quality Prediction\\src\\data\\city_day.csv'
-input_data = pd.read_csv(data_file)
-
-# Perform one-hot encoding on the 'City' column
-input_data = pd.get_dummies(input_data, columns=['City'])
-
 app = Flask(__name__)
 
-# Load the trained models
-random_forest_model = joblib.load('D:\\Air Quality Prediction\\models\\random_forest_model.pkl')
-linear_regression_model = joblib.load('D:\\Air Quality Prediction\\models\\linear_regression_model.pkl')
+# Load the trained model
+model = joblib.load('D:\\Air Quality Prediction\\models\\random_forest_model.pkl')
 
-# Rest of the code remains unchanged...
-
+# Load the list of features used during training (including 'City' columns)
+with open('D:\\Air Quality Prediction\\app\\feature_list.txt', 'r') as f:
+    feature_list = f.read().splitlines()
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -26,31 +19,28 @@ def home():
         city = request.form['city']
         pm25 = float(request.form['pm25'])
         pm10 = float(request.form['pm10'])
-        # Add other input fields as per your model features
 
         # Create a DataFrame from user input data
         user_input = pd.DataFrame({
+            'City_' + city: [1],  # Set the selected city to 1, others to 0
             'PM2.5': [pm25],
             'PM10': [pm10],
-            # Include the one-hot encoded columns for all cities with default value 0
-            **{col: [0] for col in input_data.columns if col.startswith('City_')},
         })
 
-        # Set the value to 1 for the corresponding city in the user input DataFrame
-        user_input['City_' + city] = 1
+        # Add other input fields as per your model features with a default value of 0
+        for feature in feature_list:
+            if feature not in user_input.columns:
+                user_input[feature] = 0
 
-        # Predict air quality levels with the Random Forest model
-        random_forest_prediction = random_forest_model.predict(user_input)
-
-        # Predict air quality levels with the Linear Regression model
-        linear_regression_prediction = linear_regression_model.predict(user_input)
+        # Predict the AQI Bucket with the model
+        aqi_bucket_prediction = model.predict(user_input)[0]
 
         return render_template('result.html',
                                city=city,
-                               random_forest_prediction=random_forest_prediction[0],
-                               linear_regression_prediction=linear_regression_prediction[0])
+                               pm25=pm25,
+                               pm10=pm10,
+                               aqi_bucket=aqi_bucket_prediction)
     return render_template('index.html')
-
 
 if __name__ == '__main__':
     app.run(debug=True)

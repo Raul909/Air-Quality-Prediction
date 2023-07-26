@@ -56,20 +56,15 @@
     </style>
 </head>
 <body>
-    <h1>Enter Meteorological Conditions</h1>
-    <form action="/" method="post">
+    <h1>Air Quality Prediction</h1>
+    <form method="POST" action="/">
         <label for="city">City:</label>
-        <input type="text" name="city" id="city" required>
-
+        <input type="text" name="city" id="city" required><br>
         <label for="pm25">PM2.5:</label>
-        <input type="number" step="any" name="pm25" id="pm25" required>
-
+        <input type="number" name="pm25" id="pm25" step="0.01" required><br>
         <label for="pm10">PM10:</label>
-        <input type="number" step="any" name="pm10" id="pm10" required>
-
-        <!-- Add other input fields as per your model features -->
-
-        <input type="submit" value="Predict">
+        <input type="number" name="pm10" id="pm10" step="0.01" required><br>
+        <input type="submit" value="Predict AQI Bucket">
     </form>
 </body>
 </html>
